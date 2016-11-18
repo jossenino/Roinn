@@ -1,5 +1,5 @@
 <?php $this->load->view('admin/components/page_head'); ?>
-  <body class="hold-transition skin-blue sidebar-mini">
+  <body class="hold-transition skin-blue sidebar-mini fixed">
     <div class="wrapper">
       <header class="main-header">
           <!-- Logo -->
@@ -183,7 +183,7 @@
                       </span>
                 </div>
               </form>
-              <?php echo get_menu($menu); ?>
+              <?php echo get_menu_admin($menu); ?>
             </section>
           </aside>
         <!-- Full Width Column -->

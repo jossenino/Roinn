@@ -67,7 +67,7 @@ function e($string){
 	return htmlentities($string);
 }
 
-function get_menu ($array, $child = FALSE)
+function get_menu_admin ($array, $child = FALSE)
 {
 	$CI =& get_instance();
 	$str = '';
@@ -83,8 +83,7 @@ function get_menu ($array, $child = FALSE)
 					$str .= $active ? '<li class="treeview active">' : '<li class="treeview">';
 					$str .= '<a href="' . site_url(e($item['url'])) . '">' . e($item['nombreNavBar']);
 					$str .= '</a>' . PHP_EOL;
-					$str .= get_menu($item['children'], TRUE);
-					log_message('info' , $str);
+					$str .= get_menu_admin($item['children'], TRUE);
 				}
 			}
 			else {
@@ -107,14 +106,14 @@ function get_menu ($array, $child = FALSE)
 						$str .= $active ? '<li class="treeview active">' : '<li class="treeview">';
 						$str .= '<a href="' . site_url(e($item['url'])) . '">' . e($item['nombreNavBar']);
 						$str .= '</a>' . PHP_EOL;
-						$str .= get_menu($item['children'], TRUE);
+						$str .= get_menu_admin($item['children'], TRUE);
 						$contador = 1;
 					}
 					else{
 						$str .= $active ? '<li class="treeview active">' : '<li class="treeview">';
 						$str .= '<a href="' . site_url(e($item['url'])) . '">' . e($item['nombreNavBar']);
 						$str .= '</a>' . PHP_EOL;
-						$str .= get_menu($item['children'], TRUE);
+						$str .= get_menu_admin($item['children'], TRUE);
 					}
 				}
 			}
@@ -130,6 +129,70 @@ function get_menu ($array, $child = FALSE)
 		$str .= '</ul>' . PHP_EOL;
 	}
 	
+	
+	return $str;
+}
+
+function get_menu ($array, $child = FALSE)
+{
+	$CI =& get_instance();
+	$str = '';
+	$contador = 0;
+	if (count($array)) {
+		$str .= $child == FALSE ? '<ul class="nav navbar-nav">' . PHP_EOL : '<ul class="dropdown-menu">' . PHP_EOL;
+		
+		foreach ($array as $item) {
+			
+			$active = $CI->uri->segment(1) == $item['url'] ? TRUE : FALSE;
+			if (isset($item['children']) && count($item['children'])) {
+				if(!$item['iconClass']){
+					$str .= $active ? '<li class="dropdown active">' : '<li class="dropdown">';
+					$str .= '<a  class="dropdown-toggle '.e($item['iconClass']).'" data-toggle="dropdown" href="' . site_url(e($item['url'])) . '">' . e($item['nombreNavBar']);
+					$str .= '<b class="caret"></b></a>' . PHP_EOL;
+					$str .= get_menu($item['children'], TRUE);
+				}
+			}
+			else {
+				if(!$item['iconClass']){
+					$str .= $active ? '<li class="active">' : '<li>';
+					$str .= '<a href="' . site_url($item['url']) . '">' . e($item['nombreNavBar']) . '</a>';
+				}
+			}
+			$str .= '</li>' . PHP_EOL;
+		}
+		
+		$str .= '</ul>' . PHP_EOL;
+		$str .= '<ul class="nav navbar-nav navbar-right">';
+		foreach ($array as $item) {
+			
+			$active = $CI->uri->segment(1) == $item['url'] ? TRUE : FALSE;
+			if (isset($item['children']) && count($item['children'])) {
+				if($item['iconClass']){
+					if ($contador == 0) {
+						$str .= $active ? '<li class="dropdown active">' : '<li class="dropdown">';
+						$str .= '<a  class="dropdown-toggle '.e($item['iconClass']).'" data-toggle="dropdown" href="' . site_url(e($item['url'])) . '">';
+						$str .= '<b class="caret"></b></a>' . PHP_EOL;
+						$str .= get_menu($item['children'], TRUE);
+						$contador = 1;
+					}
+					else{
+						$str .= $active ? '<li class="dropdown active">' : '<li class="dropdown">';
+						$str .= '<a  class="dropdown-toggle '.e($item['iconClass']).'" data-toggle="dropdown" href="' . site_url(e($item['url'])) . '">' . e($item['nombreNavBar']);
+						$str .= '<b class="caret"></b></a>' . PHP_EOL;
+						$str .= get_menu($item['children'], TRUE);
+					}
+				}
+			}
+			else {
+				if($item['iconClass']){
+					$str .= $active ? '<li class="active">' : '<li>';
+					$str .= '<a class="'.e($item['iconClass']).'" href="' . site_url($item['url']) . '"></a>';
+				}
+			}
+			$str .= '</li>' . PHP_EOL;
+		}
+		$str .= '</ul>' . PHP_EOL;
+	}
 	
 	return $str;
 }
