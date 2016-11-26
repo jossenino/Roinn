@@ -19,7 +19,7 @@
 							<td> <?php echo anchor('admin/building/edit/' . $building->id, $building->name); ?></td>
 							<td> <?php echo btn_js("btn btn-warning fa fa-map-marker","","showAddress(".$building->idDirection.")");?></td>
 							<td> 
-								<?php echo btn_edit('admin/building/edit/' . $building->id); ?>
+								<?php echo btn_edit_img('admin/building/edit/' . $building->id, 'building/Building-Edit.png'); ?>
 								<?php echo btn_delete('admin/building/delete/' . $building->id);?>
 							</td>
 						</tr>

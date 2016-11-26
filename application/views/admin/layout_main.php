@@ -1,5 +1,5 @@
 <?php $this->load->view('admin/components/page_head'); ?>
-  <body class="hold-transition skin-blue sidebar-mini fixed">
+  <body class="hold-transition skin-blue-light sidebar-mini fixed">
     <div class="wrapper">
       <header class="main-header">
           <!-- Logo -->

@@ -46,6 +46,7 @@ class User_M extends MY_Model{
 
 	public function login ()
 	{
+		log_message('info', 'Obteniendo los datos del usuario----email:' .$this->input->post('email') . 'password:' . $this->hash($this->input->post('password')));
 		$user = $this->get_by(array(
 			'email' => $this->input->post('email'),
 			'password' => $this->hash($this->input->post('password')),

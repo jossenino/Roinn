@@ -11,6 +11,11 @@ function btn_edit ($uri)
 	return anchor($uri, '<button class="btn btn-primary glyphicon glyphicon-pencil"></button>');
 }
 
+function btn_edit_img ($uri,$uriImg)
+{
+	return anchor($uri, '<button class="btn btn-primary glyphicon glyphicon-pencil"><img src='.site_url($uriImg).'/></button>');
+}
+
 function btn_delete ($uri)
 {
 	return anchor($uri, '<button class="btn btn-danger glyphicon glyphicon-trash"></button>', array(
