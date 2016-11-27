@@ -13,12 +13,19 @@ function btn_edit ($uri)
 
 function btn_edit_img ($uri,$uriImg)
 {
-	return anchor($uri, '<button class="btn btn-primary glyphicon glyphicon-pencil"><img src='.site_url($uriImg).'/></button>');
+	return anchor($uri, '<img src='.site_url($uriImg).'> </img>');
 }
 
 function btn_delete ($uri)
 {
 	return anchor($uri, '<button class="btn btn-danger glyphicon glyphicon-trash"></button>', array(
+		'onclick' => "return confirm('You are about to delete a record. This cannot be undone. Are you sure?');"
+	));
+}
+
+function btn_delete_img ($uri,$uriImg)
+{
+	return anchor($uri, '<img src='.site_url($uriImg).'> </img>', array(
 		'onclick' => "return confirm('You are about to delete a record. This cannot be undone. Are you sure?');"
 	));
 }
@@ -201,6 +208,61 @@ function get_menu ($array, $child = FALSE)
 	
 	return $str;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function get_menu_prueba ($array, $child = FALSE)
+{
+	$CI =& get_instance();
+	$str = '';
+	$contador = 0;
+	if (count($array)) {
+		$str .= $child == FALSE ? '<div class="col col-md-12">' . PHP_EOL : '<div class="col col-md-12">' . PHP_EOL;
+		
+		foreach ($array as $item) {
+			
+			$active = $CI->uri->segment(1) == $item['url'] ? TRUE : FALSE;
+			if (isset($item['children']) && count($item['children'])) {
+				$str .= $active ? '<div class="col col-md-2">' : '<div class="col col-md-2">';
+				$str .= get_menu_prueba($item['children'], TRUE);
+			}
+			else {
+				$str .= $active ? '<div class="col col-md-2">' : '<div class="col col-md-2">';
+				$str .= '<a href="' . site_url($item['url']) . '"><img src="'.site_url($item['iconClass']) . '" /></a>';
+			}
+			$str .= '</div>' . PHP_EOL;
+		}
+		$str .= '</div>' . PHP_EOL;
+	}
+	
+	return $str;
+}
+
+
+
+
+
+
+
 
 /**
  * Dump helper. Functions to dump variables to the screen, in a nicley formatted manner.

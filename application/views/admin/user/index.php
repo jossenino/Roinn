@@ -1,7 +1,7 @@
 
 	<div class="box box-primary">
               <div class="box-header with-border">
-                <h3 class="box-title"><?php echo anchor('admin/user/edit', '<i class="fa fa-plus"></i> Añadir Usuario'); ?></h3>
+                <h3 class="box-title"><?php echo anchor('admin/user/edit', '<img src="'.site_url("images/user/User-Add.png") . '" />'); ?></h3>
               </div>
               <div class="box-body">
               	<div class="table-responsive">
@@ -20,8 +20,8 @@
 							<td> <?php echo anchor('admin/user/edit/' . $user->idUsers, $user->userName); ?></td>
 							<td><?php echo anchor('admin/user/edit/' . $user->idUsers, $user->email); ?></td>
 							<td> <?php echo btn_js("btn btn-warning fa fa-map-marker","","showAddress(".$user->idAddress.")");?></td>
-							<td><?php echo btn_edit('admin/user/edit/' . $user->idUsers); ?>
-								<?php echo btn_delete('admin/user/delete/' . $user->idUsers);?>
+							<td><?php echo btn_edit_img('admin/user/edit/' . $user->idUsers, 'images/user/User-Edit.png'); ?>
+								<?php echo btn_delete_img('admin/user/delete/' . $user->idUsers, 'images/user/User-Remove.png');?>
 							</td>
 						</tr>
 							<?php endforeach; ?>

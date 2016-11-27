@@ -1,7 +1,7 @@
 
 	<div class="box box-primary">
               <div class="box-header with-border">
-                <h3 class="box-title"><?php echo anchor('admin/building/edit', '<i class="fa fa-plus"></i> Añadir edificio'); ?></h3>
+                <h3 class="box-title"><?php echo anchor('admin/building/edit', '<img src="'.site_url("images/building/Building-Add.png") . '" />'); ?></h3>
               </div>
               <div class="box-body">
               	<div class="table-responsive">
@@ -19,8 +19,8 @@
 							<td> <?php echo anchor('admin/building/edit/' . $building->id, $building->name); ?></td>
 							<td> <?php echo btn_js("btn btn-warning fa fa-map-marker","","showAddress(".$building->idDirection.")");?></td>
 							<td> 
-								<?php echo btn_edit_img('admin/building/edit/' . $building->id, 'building/Building-Edit.png'); ?>
-								<?php echo btn_delete('admin/building/delete/' . $building->id);?>
+								<?php echo btn_edit_img('admin/building/edit/' . $building->id, 'images/building/BuildingEdit.png'); ?>
+								<?php echo btn_delete_img('admin/building/delete/' . $building->id,'images/building/Building-Delete.png');?>
 							</td>
 						</tr>
 							<?php endforeach; ?>

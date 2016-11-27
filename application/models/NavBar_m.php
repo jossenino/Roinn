@@ -65,8 +65,8 @@ Class NavBar_m extends MY_Model
 		$this->db->from('navBars');
 		$this->db->join('navBars_Profiles', 'navBars_Profiles.idMenu = navBars.id', 'inner');
 		$this->db->join('profiles p','p.idProfile = navBars_Profiles.idProfile', 'inner');
-		//$this->db->where('p.idProfile', $this->session->userdata('idProfile'));
-		$this->db->where('p.idProfile', 1);
+		$this->db->where('p.idProfile', $this->session->userdata('idProfile'));
+		//$this->db->where('p.idProfile', 1);
 		$this->db->where('navBars.status', 1);
 		$this->db->order_by($this->_order_by);
 		$navBars = $this->db->get()->result_array();
