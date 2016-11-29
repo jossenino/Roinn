@@ -2,6 +2,7 @@
 class Dashboard extends Admin_Controller {
 	public function __construct(){
 		parent::__construct();
+		$this->data['meta_title'] = 'Roinn - Inicio';
 		$this->load->model('page_m');
 		$this->load->model('menu/article_m');
 	}

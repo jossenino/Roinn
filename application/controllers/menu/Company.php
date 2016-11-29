@@ -5,7 +5,7 @@
 	class Company extends Admin_Controller{
 		public function __construct(){
 			parent::__construct();
-			$this->data['meta_title'] = 'TMIS - Empresas';
+			$this->data['meta_title'] = 'Roinn - Empresas';
 			$this->data['active_navBar'] = 'active';
 		}
 

@@ -3,7 +3,7 @@
 class Department extends Admin_Controller {
 	public function __construct(){
 		parent::__construct();
-		$this->data['meta_title'] = 'Afdeling - Departamentos';
+		$this->data['meta_title'] = 'Roinn - Departamentos';
 		$this->load->model('department_m');
 		//Load model buildings
 		$this->load->model('building_m');

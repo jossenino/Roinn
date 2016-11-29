@@ -1,7 +1,7 @@
 <?php $this->load->view('admin/components/page_head'); ?>
   <body class="hold-transition skin-blue-light sidebar-mini fixed">
     <div class="wrapper">
-      <header class="main-header">
+      <header class="main-header" >
           <!-- Logo -->
             <a href="<?php echo base_url() ?>index.php/admin/dashboard" class="logo">
               <!-- mini logo for sidebar mini 50x50 pixels -->

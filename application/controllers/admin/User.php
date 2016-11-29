@@ -3,6 +3,7 @@
 class User extends Admin_Controller {
 	public function __construct(){
 		parent::__construct();
+		$this->data['meta_title'] = 'Roinn - Usuarios';
 		//load model address
 		$this->load->model('address_m');
 	}

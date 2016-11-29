@@ -5,6 +5,7 @@ class NavBar extends Admin_Controller
 	public function __construct ()
 	{
 		parent::__construct();
+		$this->data['meta_title'] = 'Roinn - Menu';
 		$this->load->model('navBar_m');
 	}
 

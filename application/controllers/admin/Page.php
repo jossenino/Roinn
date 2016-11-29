@@ -5,6 +5,7 @@ class Page extends Admin_Controller
 	public function __construct ()
 	{
 		parent::__construct();
+		$this->data['meta_title'] = 'Roinn - Páginas';
 		$this->load->model('page_m');
 	}
 

@@ -4,7 +4,7 @@ class profile extends Admin_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('profile_m');
-		$this->data['meta_title'] = 'Afdeling - Perfiles';
+		$this->data['meta_title'] = 'Roinn - Perfiles';
 	}
 
 	public function index ()

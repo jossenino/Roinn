@@ -3,6 +3,7 @@ class Employee extends Frontend_Controller {
 
     public function __construct(){
         parent::__construct();
+        $this->data['meta_title'] = 'Roinn - Empleados';
     }
 
     public function index($id, $slug){

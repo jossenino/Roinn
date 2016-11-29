@@ -3,6 +3,7 @@
 class Building extends Admin_Controller {
 	public function __construct(){
 		parent::__construct();
+		$this->data['meta_title'] = 'Roinn - Edificios';
 		$this->load->model('building_m');
 		//load model address
 		$this->load->model('address_m');
