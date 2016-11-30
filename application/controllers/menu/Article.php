@@ -28,4 +28,9 @@ class Article extends Frontend_Controller {
     	$this->data['subview'] = 'article';
     	$this->load->view('main_layout', $this->data);
     }
+
+    public function blog(){
+        $this->data['subview'] = 'blog';
+        $this->load->view('main_layout', $this->data);
+    }
 }
