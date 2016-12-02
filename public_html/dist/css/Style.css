@@ -1,3 +1,10 @@
+@font-face {
+    font-family: oxigyn;
+    src: url(../fonts/Oxygen-Regular.ttf);
+}
+
+body {font-family: oxigyn;}
+
 #nameView{
 	 float: right; 
 	 font-size: 12px; 
@@ -9,8 +16,8 @@
 
 header.navbar-empty {
     height: 50px;
-    background: #fff;
-    border-bottom: 1px solid #eee;
+    background: #FFB852;
+    border-bottom: 1px solid #FFB852;
 }
 .navbar-fixed-top {
     top: 0;
@@ -18,8 +25,9 @@ header.navbar-empty {
 }
 
 .center-logo{
-	color: #3c8dbc;
+	color: #fff;
 	text-align: center;
+	font-size: 18px;
 }
 
 .login-afdeling{	
@@ -30,16 +38,41 @@ header.navbar-empty {
 
 .h1-login{
 	line-height: 70px;
-	color: #3c8dbc;
+	color: #FFB852;
 	font-size: 50px;
 	font-weight: bold;
 }
 
 .parrafo-login{
 	color: #888;
-	font-size: 16px;
+	font-size: 18px;
 	font-weight: bold;
 }
 
-.login-box-body,.register-box-body{background: #fafafa;border-radius: 10px;box-shadow: 0 0 2px #ccc;}
-.login-page{background: #fff;}
+.login-box-body,.register-box-body{background: #fff;border-radius: 10px;box-shadow: 0 0 2px #ccc;}
+.login-page{background: #fafafa;}
+
+.btn-primary{
+  background-color: #FFB852;
+  border-color: #FFB852;
+}
+
+.btn-primary:hover{
+  background-color: #FEB068;
+  border-color: #FEB068;
+}
+
+.btn-primary:active:focus{
+  background-color: #FFB852; /*FEB068*/
+  border-color: #FFB852;
+}
+
+.skin-yellow-light .main-header .navbar-static-top {
+  background-color: #FFB852; /*FEB068*/
+  border-color: #FFB852;
+}
+
+.skin-yellow-light .main-header .logo{
+	background-color: #FFB852; /*FEB068*/
+  border-color: #FFB852;
+}

@@ -17,6 +17,20 @@ class User_M extends MY_Model{
 		)
 	);
 
+	public $rulesLogin = array(
+		'email' => array(
+			'field' => 'email', 
+			'label' => 'Email', 
+			'rules' => 'trim|required'
+		), 
+		'password' => array(
+			'field' => 'password', 
+			'label' => 'Password', 
+			'rules' => 'trim|required'
+		)
+	);
+
+
 	public $rules_admin = array(
 		'userName' => array(
 			'field' => 'userName', 
@@ -47,20 +61,16 @@ class User_M extends MY_Model{
 	public function login ()
 	{
 		log_message('info', 'Obteniendo los datos del usuario----email:' .$this->input->post('email') . 'password:' . $this->hash($this->input->post('password')));
-		$user = $this->get_by(array(
-			'email' => $this->input->post('email'),
-			'password' => $this->hash($this->input->post('password')),
-		), TRUE);
-		
+		$user = $this->get_Login($this->input->post('email'),$this->hash($this->input->post('password')));		
 		if (count($user)) {
 			// Log in user
 			$data = array(
-				'userName' => $user->userName,
-				'email' => $user->email,
-				'idUsers' => $user->idUsers,
+				'userName' => $user[0]["userName"],
+				'email' => $user[0]["email"],
+				'idUsers' => $user[0]["idUsers"],
 				'loggedin' => TRUE,
-				'idProfile' => $user->idProfile,
-				'idCompany' => $user->company,
+				'idProfile' => $user[0]["idProfile"],
+				'idCompany' => $user[0]["company"],
 			);
 			$this->session->set_userdata($data);
 		}

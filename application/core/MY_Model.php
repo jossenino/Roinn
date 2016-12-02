@@ -46,6 +46,16 @@ class MY_Model extends CI_Model {
 		$this->db->where($where);
 		return $this->get(NULL, $single);
 	}
+
+	public function get_Login($user, $passwordUser){
+		$this->db->select('*');
+		$this->db->from('users');
+		$where = '(email="'.$user.'" or username = "'.$user.'")';
+       	$this->db->where($where);
+       	$this->db->where('password',$passwordUser);
+		$user = $this->db->get()->result_array();
+		return $user;
+	}
 	
 	public function save($data, $id = NULL){
 		

@@ -122,6 +122,7 @@ class User extends Admin_Controller {
 		// Redirect a user if he's already logged in
 		$dashboard = 'admin/dashboard';
 		if ($this->user_m->loggedin() != FALSE) {
+			log_message('info', 'perfil usuario : ' . $this->session->userdata('idProfile'));
 			if ($this->session->userdata('idProfile') == 1) {
 					redirect($dashboard);
 				}
@@ -130,7 +131,7 @@ class User extends Admin_Controller {
 				}
 		}
 		// Set form
-		$rules = $this->user_m->rules;
+		$rules = $this->user_m->rulesLogin;
 		$this->form_validation->set_rules($rules);
 		if ($this->form_validation->run() == TRUE) {
 			//we can login

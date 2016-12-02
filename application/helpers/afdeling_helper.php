@@ -44,11 +44,11 @@ function article_link($article){
 	return 'menu/article/' . intval($article->id) . '/' . e($article->slug);
 }
 function article_links($articles){
-	$string = '<ul>';
+	$string = '<ul class="list-unstyled">';
 	foreach ($articles as $article) {
 		$url = article_link($article);
 		$string .= '<li>';
-		$string .= '<h3>' . anchor($url, e($article->title)) .  ' ›</h3>';
+		$string .= anchor($url, e($article->title)) .  ' ›';
 		$string .= '<p class="pubdate">' . e($article->pubdate) . '</p>';
 		$string .= '</li>';
 	}
